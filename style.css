@@ -1,0 +1,12 @@
+body{
+    margin:0px
+}
+
+canvas{
+    z-index: 0;
+}
+
+span{
+    z-index: 1;
+    background-color:black;
+}
