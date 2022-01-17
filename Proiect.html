@@ -39,10 +39,20 @@
         font-size: 20px;
         padding: 10px;
     }
-    .Tutorial{
+    .JustText1{
         color: white;
         position: absolute;
         right:0;
+        z-index: 2;
+        background-color:black;
+        font-size: 20px;
+        padding: 10px;
+    }
+    .JustText2{
+        color: white;
+        position: absolute;
+        right:0;
+        bottom:0;
         z-index: 2;
         background-color:black;
         font-size: 20px;
@@ -60,11 +70,17 @@
 
 <canvas id="c"></canvas>
 
-<span id=output class=Raspuns></span>
+<span id=output class=Raspuns></span><!--Raspuns ffs-->
+<span class='JustText1'>Here be an impresive and easy to understand Tutorial to my site.</span>
+<span id="qqq"></span><!--Symptoms will appear here box-->
+<span class='JustText2'>Send Feedback at <a style="color:yellow" href="mailto:onlinehospitalwastaken@gmail.com">onlinehospitalwastaken@gmail.com</a></span>
 
-<span class=Tutorial>Here be an impresive and easy to understand Tutorial to my site.</span>
+<qqq id="arm" >New Hand Model</qqq>
+<qqq id="default" >New leg Model</qqq>
+<qqq id="male_torso" >New Torso Model</qqq>
+<qqq id="GenericHead" >New Head Model</qqq>
 
-<span id="qqq"></span>
+
 <qqq id="talpaD" >Right Foot</qqq>
 <qqq id="cap" >Head</qqq>
 <qqq id="talpaS" >Left Foot</qqq>
@@ -157,21 +173,83 @@
     const scene = new THREE.Scene();
     //scene.background = new THREE.Color(0x82a5ba);
 
-    // Geometry + Material = Mesh ------------------------------------------------------------------------------------------------------------------
+    // New Model------------------------------------------------------------------------------------------------------------------
 
-    /*const loader = new OBJLoader();
+    const loader = new OBJLoader();
     loader.load(
-        'HumanObjfiles/head.obj',
-        function ( object ) {
-
-            object.position.set(0,10,20);
+        'HumanObjfiles/arm.obj',
+        function (object) {
+            var part = object.getObjectByName('arm');
+            part.material.color.setHex(0xffc9a9);
+            object.position.set(0.25,9.4,19.9);
             object.rotation.set(4.7123889825,0,1.5707963275);
-            object.scale.set(0.1,0.1,0.1);
-            object.name="cap"
+            object.scale.set(-0.1,0.1,0.1);
             scene.add( object );
-
         },
-    );*/
+    );
+    const loader1 = new OBJLoader();
+    loader1.load(
+        'HumanObjfiles/arm.obj',
+        function (object1) {
+            var part1 = object1.getObjectByName('arm');
+            part1.material.color.setHex(0xffc9a9);
+            object1.position.set(0.25,9.4,26.5);
+            object1.rotation.set(4.7123889825,0,1.5707963275);
+            object1.scale.set(0.1,0.1,0.1);
+            scene.add( object1 );
+        },
+    );
+    const loader2 = new OBJLoader();
+    loader2.load(
+        'HumanObjfiles/torso.obj',
+        function (object2) {
+            var part2 = object2.getObjectByName('male_torso');
+            part2.material.color.setHex(0xffc9a9);
+            object2.position.set(0,10,23);
+            object2.rotation.set(4.7123889825,0,1.5707963275);
+            object2.scale.set(0.1,0.1,0.1);
+            scene.add( object2 );
+        },
+    );
+    const loader3 = new OBJLoader();
+    loader3.load(
+        'HumanObjfiles/head.obj',
+        function (object3) {
+            var part3 = object3.getObjectByName('GenericHead');
+            part3.material.color.setHex(0xffc9a9);
+            object3.position.set(0.125,11.8,23.25);
+            object3.rotation.set(4.7123889825,0,1.5707963275);
+            object3.scale.set(0.1,0.1,0.1);
+            scene.add( object3 );
+        },
+    );
+    const loader4 = new OBJLoader();
+    loader4.load(
+        'HumanObjfiles/leg.obj',
+        function (object4) {
+            var part4 = object4.getObjectByName('default');
+            part4.material.color.setHex(0xffc9a9);
+            object4.position.set(0.5,-2.5,24.25);
+            object4.rotation.set(4.7123889825,0,1.5707963275);
+            object4.scale.set(0.1,0.1,0.1);
+            scene.add( object4 );
+        },
+    );
+    const loader5 = new OBJLoader();
+    loader5.load(
+        'HumanObjfiles/leg.obj',
+        function (object5) {
+            var part5 = object5.getObjectByName('default');
+            part5.material.color.setHex(0xffc9a9);
+            object5.position.set(0.5,-2.5,22.25);
+            object5.rotation.set(4.7123889825,0,1.5707963275);
+            object5.scale.set(-0.1,0.1,0.1);
+            scene.add( object5 );
+        },
+    );
+
+    // Old Model-----------------------------------------------------------------------------------------------------------------------------------
+
 
     let partsdata = [
         {
@@ -295,11 +373,11 @@
     camera.position.set(0, 0, 0);
 
     const controls = new OrbitControls(camera, canvas);
-    controls.target.set(0, 10, 0);
+    controls.target.set(0, 10, 10);
     controls.update();
 
-    camera.position.set(22, 10, 25);
-    camera.lookAt(0, 10, 0);
+    camera.position.set(30, 10, 30);
+    camera.lookAt(0, 10, 10);
 
     // Skybox---------------------------------------------------------------------------------------------------------------------------------------
     /*{
