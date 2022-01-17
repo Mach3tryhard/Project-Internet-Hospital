@@ -6,9 +6,15 @@
 <body>
 
 <style>
+    #c {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: url(gradient.png) no-repeat center center ;
+    background-size: cover;
+    }
     body{
         margin:0px;
-        background-color: #82a5ba;
     }
     canvas{
         position: absolute;
@@ -24,49 +30,80 @@
         padding: 10px;
         display:none;
     }
-    .mijloc{
+    .Raspuns{
         color: white;
         position: absolute;
-        top:100px;
+        bottom:0;
+        z-index: 2;
+        background-color:black;
+        font-size: 20px;
+        padding: 10px;
+    }
+    .Tutorial{
+        color: white;
+        position: absolute;
+        right:0;
+        z-index: 2;
+        background-color:black;
+        font-size: 20px;
+        padding: 10px;
+    }
+    #qqq{
+        color: white;
+        position: absolute;
         z-index: 2;
         background-color:black;
         font-size: 20px;
         padding: 10px;
     }
 </style>
+
 <canvas id="c"></canvas>
-<span id=output class=mijloc></span>
-<qqq id="talpaD" >talpaD <input type=checkbox></qqq>
-<qqq id="cap" >cap <input type=checkbox></qqq>
-<qqq id="talpaS" >talpaS <input type=checkbox></qqq>
-<qqq id="gambaD" >gambaD <input type=checkbox></qqq>
-<qqq id="gambaS" >gambaS <input type=checkbox></qqq>
-<qqq id="genunchiD" >genunchiD <input type=checkbox></qqq>
-<qqq id="genunchiS" >genunchiS <input type=checkbox></qqq>
-<qqq id="coapsaD" >coapsaD <input type=checkbox></qqq>
-<qqq id="coapsaS" >coapsaS <input type=checkbox></qqq>
-<qqq id="bazin" >bazin <input type=checkbox></qqq>
-<qqq id="stomac" >stomac <input type=checkbox></qqq>
-<qqq id="piept" >piept <input type=checkbox></qqq>
-<qqq id="mana1D" >mana1D <input type=checkbox></qqq>
-<qqq id="cotD" >cotD <input type=checkbox></qqq>
-<qqq id="mana2D" >mana2D <input type=checkbox></qqq>
-<qqq id="palmaD" >palmaD <input type=checkbox></qqq>
-<qqq id="mana1S" >mana1S <input type=checkbox></qqq>
-<qqq id="cotS" >cotS <input type=checkbox></qqq>
-<qqq id="mana2S" >mana2S <input type=checkbox></qqq>
-<qqq id="palmaS" >palmaS <input type=checkbox></qqq>
-<qqq id="gat" >Gat<br> temperatura<input name=temperatura type=checkbox>Muci<input name=muci type=checkbox> <br><button onclick="FunctieCalculatBoala()">Submit</button></qqq>
+
+<span id=output class=Raspuns></span>
+
+<span class=Tutorial>Here be an impresive and easy to understand Tutorial to my site.</span>
+
+<span id="qqq"></span>
+<qqq id="talpaD" >Right Foot</qqq>
+<qqq id="cap" >Head</qqq>
+<qqq id="talpaS" >Left Foot</qqq>
+<qqq id="gambaD" >Right Calf</qqq>
+<qqq id="gambaS" >Left Calf</qqq>
+<qqq id="genunchiD" >Right Knee</qqq>
+<qqq id="genunchiS" >Left Knee</qqq>
+<qqq id="coapsaD" >Right Thigh</qqq>
+<qqq id="coapsaS" >Left Thigh</qqq>
+<qqq id="bazin" >Hip</qqq>
+<qqq id="stomac" >stomach</qqq>
+<qqq id="piept" >Chest</qqq>
+<qqq id="mana1D" >Right Arm</qqq>
+<qqq id="cotD" >Right Elbow</qqq>
+<qqq id="mana2D" >Right Forearm</qqq>
+<qqq id="palmaD" >Right Hand</qqq>
+<qqq id="mana1S" >Left Arm</qqq>
+<qqq id="cotS" >Left Elbow</qqq>
+<qqq id="mana2S" >Left Forearm</qqq>
+<qqq id="palmaS" >Left Hand</qqq>
+<qqq id="gat" >Neck<br> Sneezing<input name=stranut type=checkbox>Pain<input name=durere type=checkbox>Cough<input name=tuse type=checkbox>Tiredness<input name=oboseala type=checkbox>
+    <br>Fever<input name=febra type=checkbox>Chills<input name=frisoane type=checkbox>Hoarseness<input name=raguseala type=checkbox>Tickling<input name=gadilat type=checkbox> 
+    <br><button onclick="FunctieCalculatBoala()">Submit</button>
+</qqq>
 
 <script>
+    document.getElementById("output").textContent="Your answer will appear here!";
+    document.getElementById("qqq").textContent="Symptoms will appear here!";
     var boli=[{
-        nume:'raceala', simptome:['temperatura','muci'], parte:['gat'], scor:0
+        nume:'Pharyngitis', simptome:['stranut','durere','tuse','oboseala'], parte:['gat'], scor:0
     },
     {
-        nume:'gripa', simptome:['muci','temperatura'], parte:['gat'], scor:0
+        nume:'Laryngitis', simptome:['raguseala','gadilat','durere','tuse'], parte:['gat'], scor:0
+    },
+    {
+        nume:'Tonsillitis', simptome:['durere','febra','raguseala','gadilat'], parte:['gat'], scor:0
     }]
     var parteselectata;
-    //Functia pentru calculat boala cea mai probabila--------------------------------------------------------
+    //Functia pentru calculat boala cea mai probabila---------------------------------------------------------------------------------------------------
     function FunctieCalculatBoala()
     {
         for(let i=0;i<boli.length;i++)
@@ -78,24 +115,35 @@
                     for (let input of document.querySelectorAll("#gat input"))
                     {
                         if(boli[i].simptome[j]==input.name && input.checked==true){
-                            boli[i].scor += j;
+                            boli[i].scor += boli[i].simptome.length-j;
                         }
                     }
                 }
             }
             document.getElementById(boli[i].parte)
         }
-        var boalacastigatoare;
-        var nrmin=9007199254740991;
+        var boalacastigatoare="Not enough data";
+        var nrmin=0;
         for(let i=0;i<boli.length;i++)
         {
-            if(boli[i].scor<nrmin)
+            if(boli[i].scor>nrmin && boli[i].scor!=0)
             {
                 nrmin=boli[i].scor;
                 boalacastigatoare=boli[i].nume;
             }
         }
-        document.getElementById("output").textContent="Boala cea mai probabila este " + boalacastigatoare;
+        if(boalacastigatoare=="Not enough data")
+        {
+            document.getElementById("output").textContent=boalacastigatoare;
+        }
+        else
+        {
+            document.getElementById("output").textContent="You probably have " + boalacastigatoare+" "+nrmin;
+        }
+        for(let i=0;i<boli.length;i++)
+        {
+            boli[i].scor=0;
+        }
     }
 </script>
 
@@ -107,9 +155,24 @@
     import {OBJLoader} from 'https://threejs.org/examples/jsm/loaders/OBJLoader.js';
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x82a5ba);
+    //scene.background = new THREE.Color(0x82a5ba);
 
-    // Geometry + Material = Mesh ------------------------------------------------------------------------------
+    // Geometry + Material = Mesh ------------------------------------------------------------------------------------------------------------------
+
+    /*const loader = new OBJLoader();
+    loader.load(
+        'HumanObjfiles/head.obj',
+        function ( object ) {
+
+            object.position.set(0,10,20);
+            object.rotation.set(4.7123889825,0,1.5707963275);
+            object.scale.set(0.1,0.1,0.1);
+            object.name="cap"
+            scene.add( object );
+
+        },
+    );*/
+
     let partsdata = [
         {
             w:2, h:1, d:1,
@@ -188,16 +251,16 @@
             x:-1, y:14, z:7,n:"palmaS"
         },
         {
-            w:1, h:1, d:1,
+            w:1, h:1.5, d:1,
             x:-1, y:15, z:0, n:'gat'
         },
         {
             w:2, h:2, d:2,
-            x:-1, y:16, z:0, n:'cap'
+            x:-1, y:16.5, z:0, n:'cap'
         }
     ];
     for (let dat of partsdata){
-        const material = new THREE.MeshLambertMaterial({emissive:0xe8beac,color: 0x000000});
+        const material = new THREE.MeshPhongMaterial({color: 0xffc9a9});
         let geometry = new THREE.BoxGeometry(dat.w, dat.h, dat.d);
         const cube = new THREE.Mesh(geometry, material);
         cube.name=dat.n;
@@ -205,23 +268,29 @@
         cube.position.set(dat.x, dat.y, dat.z);
     }
 
-    // Set up lights------------------------------------------------------------------------------------
+    // Set up lights------------------------------------------------------------------------------------------------------------------------------
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-    scene.add(ambientLight);
+    const color = 0xFFFFFF;
+    const intensity = 0.3;
+    const light = new THREE.AmbientLight(color, intensity);
+    scene.add(light);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
-    directionalLight.position.set(10, 20, 0);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(9, 20, 7);
     scene.add(directionalLight);
 
-    // Camera--------------------------------------------------------------------------------------------
+    const directionalLight1 = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight1.position.set(-9, -20, -7);
+    scene.add(directionalLight1);
+
+    // Camera-------------------------------------------------------------------------------------------------------------------------------------
 
     const canvas = document.querySelector('#c');
 
     const fov = 60;
     const aspect = 2;
     const near = 0.1;
-    const far = 200;
+    const far = 10000;
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
     camera.position.set(0, 0, 0);
 
@@ -229,13 +298,27 @@
     controls.target.set(0, 10, 0);
     controls.update();
 
-    camera.position.set(25, 10, 25);
+    camera.position.set(22, 10, 25);
     camera.lookAt(0, 10, 0);
 
-    // Raycasting + Rendering------------------------------------------------------------------------------------------
+    // Skybox---------------------------------------------------------------------------------------------------------------------------------------
+    /*{
+    const loader = new THREE.TextureLoader();
+    const texture = loader.load(
+        'skybox.jpg',
+        () => {
+        const rt = new THREE.WebGLCubeRenderTarget(texture.image.height);
+        rt.fromEquirectangularTexture(renderer, texture);
+        scene.background = rt.texture;
+        });
+    }*/
+    // Raycasting + Rendering-------------------------------------------------------------------------------------------------------------------------------
 
-    const renderer = new THREE.WebGLRenderer({canvas});
-    renderer.setSize(window.innerWidth*0.996, window.innerHeight*0.995);
+    const renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: true,
+    });
+    renderer.setSize(window.innerWidth*0.9999, window.innerHeight*0.9999);
     renderer.render(scene, camera);
 
 
@@ -249,6 +332,19 @@
         }
         return needResize;
     }
+    // Resize in realtime-------------------------------------------------------------------------------------------------------------------------------
+
+    window.addEventListener( 'resize', onWindowResize, false );
+    function onWindowResize(){
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize( window.innerWidth, window.innerHeight );
+
+    } 
+    
+    //---------------------------------------------------------------------------------------------------------------------------------------------
 
     class PickHelper {
         constructor() {
@@ -258,7 +354,7 @@
         }
         pick(normalizedPosition, scene, camera, time) {
         if (this.pickedObject) {
-            this.pickedObject.material.emissive.setHex(this.pickedObjectSavedColor);
+            this.pickedObject.material.color.setHex(this.pickedObjectSavedColor);
             this.pickedObject = undefined;
         }
 
@@ -266,12 +362,13 @@
         const intersectedObjects = this.raycaster.intersectObjects(scene.children);
         if (intersectedObjects.length) {
             this.pickedObject = intersectedObjects[0].object;
-            this.pickedObjectSavedColor = this.pickedObject.material.emissive.getHex();
-            this.pickedObject.material.emissive.setHex(0xff0000);
+            this.pickedObjectSavedColor = this.pickedObject.material.color.getHex();
+            this.pickedObject.material.color.setHex(0xff0000);
             for(let pp of document.querySelectorAll('qqq')) pp.style.display='none';
             let punerebloc=document.querySelector('#'+this.pickedObject.name);
             parteselectata = this.pickedObject.name;
             if(punerebloc) punerebloc.style.display='block';
+            document.getElementById("qqq").style.display="none";
         }
         }
     }
@@ -316,7 +413,7 @@
         pickPosition.x = -100000;
         pickPosition.y = -100000;
     }
-    window.addEventListener('click', setPickPosition);/*mousemove*/
+    window.addEventListener('mousemove', setPickPosition);
     
 </script>
 
