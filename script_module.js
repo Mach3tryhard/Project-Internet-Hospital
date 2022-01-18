@@ -245,6 +245,7 @@
           this.pickedObject = intersectedObjects[0].object;
           this.pickedObjectSavedColor = this.pickedObject.material.color.getHex();
           this.pickedObject.material.color.setHex(0xff0000);
+          //legatura cu html
           for(let pp of document.querySelectorAll('qqq')) pp.style.display='none';
           let punerebloc=document.querySelector('#'+this.pickedObject.name);
           parteselectata = this.pickedObject.name;

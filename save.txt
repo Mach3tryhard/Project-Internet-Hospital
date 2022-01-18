@@ -1,15 +1,9 @@
-//window.addEventListener('mouseout', clearPickPosition);
-    //window.addEventListener('mouseleave', clearPickPosition);
-    /*
-    window.addEventListener('touchstart', (event) => {
-        // prevent the window from scrolling
-        event.preventDefault();
-        setPickPosition(event.touches[0]);
-    }, {passive: false});
-
-    window.addEventListener('touchmove', (event) => {
-        setPickPosition(event.touches[0]);
-    });
-
-    window.addEventListener('touchend', clearPickPosition);
-    */
+Sneezing<input name=stranut type=checkbox>
+Pain<input name=durere type=checkbox>
+Cough<input name=tuse type=checkbox>
+Tiredness<input name=oboseala type=checkbox><br>
+Fever<input name=febra type=checkbox>
+Chills<input name=frisoane type=checkbox>
+Hoarseness<input name=raguseala type=checkbox>
+Tickling<input name=gadilat type=checkbox> 
+        <br><button onclick="FunctieCalculatBoala()">Submit</button>
