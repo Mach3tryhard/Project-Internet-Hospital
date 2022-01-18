@@ -22,47 +22,47 @@
     }
 
     qqq{
-        color: white;
+        color: black;
         position: absolute;
         z-index: 1;
-        background-color:black;
+        background-color:transparent;
         font-size: 20px;
         padding: 10px;
         display:none;
     }
     .Raspuns{
-        color: white;
+        color: black;
         position: absolute;
         bottom:0;
         z-index: 2;
-        background-color:black;
+        background-color:transparent;
         font-size: 20px;
         padding: 10px;
     }
     .JustText1{
-        color: white;
+        color: black;
         position: absolute;
         right:0;
         z-index: 2;
-        background-color:black;
+        background-color:transparent;
         font-size: 20px;
         padding: 10px;
     }
     .JustText2{
-        color: white;
+        color: black;
         position: absolute;
         right:0;
         bottom:0;
         z-index: 2;
-        background-color:black;
+        background-color:transparent;
         font-size: 20px;
         padding: 10px;
     }
     #qqq{
-        color: white;
+        color: black;
         position: absolute;
         z-index: 2;
-        background-color:black;
+        background-color:transparent;
         font-size: 20px;
         padding: 10px;
     }
@@ -171,7 +171,6 @@
     import {OBJLoader} from 'https://threejs.org/examples/jsm/loaders/OBJLoader.js';
 
     const scene = new THREE.Scene();
-    //scene.background = new THREE.Color(0x82a5ba);
 
     // New Model------------------------------------------------------------------------------------------------------------------
 
@@ -181,76 +180,68 @@
         function (object) {
             var part = object.getObjectByName('arm');
             part.material.color.setHex(0xffc9a9);
-            object.position.set(0.25,9.4,19.9);
+            object.position.set(0.25,10.4,19.9);
             object.rotation.set(4.7123889825,0,1.5707963275);
             object.scale.set(-0.1,0.1,0.1);
-            scene.add( object );
+            scene.add(object);
         },
     );
-    const loader1 = new OBJLoader();
-    loader1.load(
+    loader.load(
         'HumanObjfiles/arm.obj',
         function (object1) {
             var part1 = object1.getObjectByName('arm');
             part1.material.color.setHex(0xffc9a9);
-            object1.position.set(0.25,9.4,26.5);
+            object1.position.set(0.25,10.4,26.5);
             object1.rotation.set(4.7123889825,0,1.5707963275);
             object1.scale.set(0.1,0.1,0.1);
-            scene.add( object1 );
+            scene.add(object1);
         },
     );
-    const loader2 = new OBJLoader();
-    loader2.load(
+    loader.load(
         'HumanObjfiles/torso.obj',
         function (object2) {
             var part2 = object2.getObjectByName('male_torso');
             part2.material.color.setHex(0xffc9a9);
-            object2.position.set(0,10,23);
+            object2.position.set(0,11,23);
             object2.rotation.set(4.7123889825,0,1.5707963275);
             object2.scale.set(0.1,0.1,0.1);
-            scene.add( object2 );
+            scene.add(object2);
         },
     );
-    const loader3 = new OBJLoader();
-    loader3.load(
+    loader.load(
         'HumanObjfiles/head.obj',
         function (object3) {
             var part3 = object3.getObjectByName('GenericHead');
             part3.material.color.setHex(0xffc9a9);
-            object3.position.set(0.125,11.8,23.25);
+            object3.position.set(0.125,12.8,23.25);
             object3.rotation.set(4.7123889825,0,1.5707963275);
             object3.scale.set(0.1,0.1,0.1);
-            scene.add( object3 );
+            scene.add(object3);
         },
     );
-    const loader4 = new OBJLoader();
-    loader4.load(
+    loader.load(
         'HumanObjfiles/leg.obj',
         function (object4) {
             var part4 = object4.getObjectByName('default');
             part4.material.color.setHex(0xffc9a9);
-            object4.position.set(0.5,-2.5,24.25);
+            object4.position.set(0.5,-1.5,24.25);
             object4.rotation.set(4.7123889825,0,1.5707963275);
             object4.scale.set(0.1,0.1,0.1);
-            scene.add( object4 );
+            scene.add(object4);
         },
     );
-    const loader5 = new OBJLoader();
-    loader5.load(
+    loader.load(
         'HumanObjfiles/leg.obj',
         function (object5) {
             var part5 = object5.getObjectByName('default');
             part5.material.color.setHex(0xffc9a9);
-            object5.position.set(0.5,-2.5,22.25);
+            object5.position.set(0.5,-1.5,22.25);
             object5.rotation.set(4.7123889825,0,1.5707963275);
             object5.scale.set(-0.1,0.1,0.1);
-            scene.add( object5 );
+            scene.add(object5);
         },
     );
-
     // Old Model-----------------------------------------------------------------------------------------------------------------------------------
-
-
     let partsdata = [
         {
             w:2, h:1, d:1,
@@ -345,9 +336,7 @@
         scene.add(cube);
         cube.position.set(dat.x, dat.y, dat.z);
     }
-
     // Set up lights------------------------------------------------------------------------------------------------------------------------------
-
     const color = 0xFFFFFF;
     const intensity = 0.3;
     const light = new THREE.AmbientLight(color, intensity);
@@ -360,9 +349,7 @@
     const directionalLight1 = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight1.position.set(-9, -20, -7);
     scene.add(directionalLight1);
-
     // Camera-------------------------------------------------------------------------------------------------------------------------------------
-
     const canvas = document.querySelector('#c');
 
     const fov = 60;
@@ -378,27 +365,13 @@
 
     camera.position.set(30, 10, 30);
     camera.lookAt(0, 10, 10);
-
-    // Skybox---------------------------------------------------------------------------------------------------------------------------------------
-    /*{
-    const loader = new THREE.TextureLoader();
-    const texture = loader.load(
-        'skybox.jpg',
-        () => {
-        const rt = new THREE.WebGLCubeRenderTarget(texture.image.height);
-        rt.fromEquirectangularTexture(renderer, texture);
-        scene.background = rt.texture;
-        });
-    }*/
     // Raycasting + Rendering-------------------------------------------------------------------------------------------------------------------------------
-
     const renderer = new THREE.WebGLRenderer({
         canvas,
         alpha: true,
     });
     renderer.setSize(window.innerWidth*0.9999, window.innerHeight*0.9999);
     renderer.render(scene, camera);
-
 
     function resizeRendererToDisplaySize(renderer) {
         const canvas = renderer.domElement;
@@ -410,8 +383,7 @@
         }
         return needResize;
     }
-    // Resize in realtime-------------------------------------------------------------------------------------------------------------------------------
-
+    // Resize in realtime------------------------------------------------------------------------------------------------------------------------------
     window.addEventListener( 'resize', onWindowResize, false );
     function onWindowResize(){
 
@@ -421,9 +393,7 @@
         renderer.setSize( window.innerWidth, window.innerHeight );
 
     } 
-    
     //---------------------------------------------------------------------------------------------------------------------------------------------
-
     class PickHelper {
         constructor() {
         this.raycaster = new THREE.Raycaster();
@@ -497,4 +467,3 @@
 
 </body>
 </html>
-
