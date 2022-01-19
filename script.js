@@ -1,5 +1,4 @@
-    document.getElementById("output").textContent="Your answer will appear here!";
-    document.getElementById("qqq").textContent="Symptoms will appear here!";
+    //document.getElementById("qqq").textContent="Symptoms will appear here!";
     var boli=[{
         nume:'Pharyngitis', simptome:['stranut','durere','tuse','oboseala'], parte:['gat'], scor:0
     },

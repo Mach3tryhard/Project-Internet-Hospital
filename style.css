@@ -136,7 +136,10 @@ qqq{
     background-color: #a9ffc9;
   }
   /*The legend part*/
+  fieldset {
+    background-color: transparent;
+  }
   legend {
-    color: white;
-    padding: 5px 10px;
+    color: black;
+    border:none;
   }
