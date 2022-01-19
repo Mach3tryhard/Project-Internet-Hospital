@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <canvas id="c"></canvas>
+
+    <span class=Raspuns>
+        <fieldset id=output>
+            <legend>Answer</legend>
+            Your answer will appear here!
+        </fieldset>
+    </span>
+    <span class='JustText1'>
+        <fieldset>
+            <legend>Tutorial</legend>
+            Select the part of your body that hurts.Then select your <br>symptoms, press submit and see what problem you might have.
+        </fieldset>
+    </span>
+    <span id="qqq">
+        <fieldset>
+            <legend>Body part</legend>
+            Here will appear your selected body part.
+        </fieldset>
+    </span>
+    <span class='JustText2'>
+        <fieldset>
+            <legend>Feedback</legend>
+            Send Feedback at <a style="color:yellow" href="mailto:onlinehospitalwastaken@gmail.com">onlinehospitalwastaken@gmail.com</a>
+        </fieldset>
+    </span>
+
+    <qqq id="gat">
+        <fieldset>
+            <legend>Neck Symptoms</legend>
+            <label class="container">Pain
+                <input name='durere' type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Sneezing
+                <input name='stranut' type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Cough
+                <input name='tuse' type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Tiredness
+                <input name='oboseala' type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Fever
+                <input name='febra' type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Chills
+                <input name='frisoane' type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Hoarseness
+                <input name='raguseala' type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Tickling
+                <input name='gadilat' type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <button class="button button1" onclick="FunctieCalculatBoala()">Submit</button>
+        </fieldset>
+    </qqq>
+
+    <qqq id="talpaD" >Left Foot</qqq>
+    <qqq id="cap" >Head</qqq>
+    <qqq id="talpaS" >Right Foot</qqq>
+    <qqq id="gambaD" >Left Calf</qqq>
+    <qqq id="gambaS" >Right Calf</qqq>
+    <qqq id="genunchiD" >Left Knee</qqq>
+    <qqq id="genunchiS" >Right Knee</qqq>
+    <qqq id="coapsaD" >Left Thigh</qqq>
+    <qqq id="coapsaS" >Right Thigh</qqq>
+    <qqq id="bazin" >Hip</qqq>
+    <qqq id="abdomen" >Abdomen</qqq>
+    <qqq id="piept" >Chest</qqq>
+    <qqq id="mana1D" >Left Arm</qqq>
+    <qqq id="cotD" >Left Elbow</qqq>
+    <qqq id="mana2D" >Left Forearm</qqq>
+    <qqq id="palmaD" >Left Hand</qqq>
+    <qqq id="mana1S" >Right Arm</qqq>
+    <qqq id="cotS" >Right Elbow</qqq>
+    <qqq id="mana2S" >Right Forearm</qqq>
+    <qqq id="palmaS" >Right Hand</qqq>
+
+    <script src="script.js"></script>
+    <script src="script_module.js" type="module"></script>
+</body>
+
+</html>
