@@ -202,13 +202,12 @@
     const far = 10000;
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
     camera.position.set(20,10,20)
+    camera.lookAt(0, 10, 0);
 
     const controls = new OrbitControls(camera, canvas);
     controls.target.set(0, 10, 0);
     controls.update();
-
-    camera.lookAt(0, 10, 0);
-    // Raycasting + Rendering-------------------------------------------------------------------------------------------------------------------------------
+    //Rendering-------------------------------------------------------------------------------------------------------------------------------
     const renderer = new THREE.WebGLRenderer({
         canvas,
         alpha: true,
@@ -236,7 +235,7 @@
         renderer.setSize( window.innerWidth, window.innerHeight );
 
     } 
-    //---------------------------------------------------------------------------------------------------------------------------------------------
+    // Raycasting---------------------------------------------------------------------------------------------------------------------------------------------
     class PickHelper {
         constructor() {
         this.raycaster = new THREE.Raycaster();

@@ -7,6 +7,7 @@
 }
 body{
     margin:0px;
+    /*cursor: url(cursor.cur), default;*/
 }
 canvas{
     position: absolute;
@@ -92,7 +93,7 @@ qqq{
     background-color: #ccc;
   }
   .container input:checked ~ .checkmark {
-    background-color: #a9ffc9;
+    background-color: #3e6f4a;
   }
   .checkmark:after {
     content: "";
@@ -115,7 +116,7 @@ qqq{
   }
   /*Button css*/
   .button {
-    background-color: #a9ffc9;
+    background-color: #3e6f4a;
     border: none;
     color: white;
     padding: 16px 32px;
@@ -130,10 +131,10 @@ qqq{
   .button1 {
     background-color: white; 
     color: black; 
-    border: 2px solid #a9ffc9;
+    border: 2px solid #3e6f4a;
   }
   .button1:hover {
-    background-color: #a9ffc9;
+    background-color: #3e6f4a;
   }
   /*The legend part*/
   fieldset {
