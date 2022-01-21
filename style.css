@@ -7,7 +7,7 @@
 }
 body{
     margin:0px;
-    /*cursor: url(cursor.cur), default;*/
+    cursor: url(cursor.png), default;
 }
 canvas{
     position: absolute;
@@ -138,9 +138,10 @@ qqq{
   }
   /*The legend part*/
   fieldset {
-    background-color: transparent;
+    background-color: white;
   }
   legend {
     color: black;
     border:none;
+    background-color: white;
   }

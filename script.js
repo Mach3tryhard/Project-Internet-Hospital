@@ -7,7 +7,16 @@
     },
     {
         nume:'Tonsillitis', simptome:['durere','febra','raguseala','gadilat'], parte:['gat'], scor:0
-    }]
+    },
+    {
+        nume:'Carpal tunnel syndrome', simptome:['furnicaturi','amorteala','slabit','senzatiecurentelectric'], parte:['palmaD'], scor:0
+    },
+    {
+        nume:'Tendon Injury', simptome:['durere','sensibilitate','roseata','umflatura'], parte:['palmaD'], scor:0
+    },
+    {
+        nume:'Osteoarthritis', simptome:['durere','rigiditate','neflexibil','umflatura'], parte:['palmaD'], scor:0
+    },]
     var parteselectata;
     //Functia pentru calculat boala cea mai probabila---------------------------------------------------------------------------------------------------
     function FunctieCalculatBoala()
@@ -19,6 +28,12 @@
                 for(let j=0;j<boli[i].simptome.length;j++)
                 {
                     for (let input of document.querySelectorAll("#gat input"))
+                    {
+                        if(boli[i].simptome[j]==input.name && input.checked==true){
+                            boli[i].scor += boli[i].simptome.length-j;
+                        }
+                    }
+                    for (let input of document.querySelectorAll("#palmaD input"))
                     {
                         if(boli[i].simptome[j]==input.name && input.checked==true){
                             boli[i].scor += boli[i].simptome.length-j;
@@ -68,7 +83,7 @@
         }
         else
         {
-            document.getElementById("output").textContent="Top problems you might have by persentage:"+boalacastigatoare+" "+reznrmin+"%"+' '+boalacastigatoare1+" "+reznrmin1+"%"+' '+boalacastigatoare2+" "+reznrmin2+"%";
+            document.getElementById("output").textContent="Top problems you might have by percentage:"+boalacastigatoare+" "+reznrmin+"%"+' '+boalacastigatoare1+" "+reznrmin1+"%"+' '+boalacastigatoare2+" "+reznrmin2+"%";
         }
         for(let i=0;i<boli.length;i++)
         {
